@@ -1,0 +1,52 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+void shOmenu(){
+    cout<<"                                           "<<"____________________MENU____________________"<<endl;
+    cout<<"                                           "<<"1. check balance"<<endl;
+    cout<<"                                           "<<"2. deposite"<<endl;
+    cout<<"                                           "<<"3. withdraw"<<endl;
+    cout<<"                                           "<<"4.exit"<<endl;
+    cout<<"                                           "<<"____________________________________________"<<endl;
+    
+}
+
+
+int main(){
+    
+    int choice;
+    double balance = 100000;
+   
+    
+    do{
+       shOmenu();
+       cout<<"                                           "<<"Select: ";
+       cin>>choice;
+        
+   
+    switch(choice){
+        
+           case 1: cout<<"                                           "<<"Available balance : "<< balance<<endl;
+                   break;
+        
+           case 2: cout<<"                                           "<<"deposite :";
+                   double depositeAmount;
+                   cin>>depositeAmount;
+                   balance += depositeAmount;
+                   break;
+           
+           case 3: cout<<"                                           "<<"withdraw :";
+                   double withdrawAmount;
+                   cin>>withdrawAmount;
+                        if(withdrawAmount <= balance)
+                           balance -= withdrawAmount;
+                     else
+                           cout<<"                                           "<<"Insufficient Balance "<<endl;
+                           break;
+        
+    }
+   
+    }while(choice != 4);
+    
+}
