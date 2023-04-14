@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "..\\WebDev"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "WebDev",
+		"files.associations": {
+			"new": "cpp",
+			"*.tcc": "cpp",
+			"iostream": "cpp",
+			"type_traits": "cpp"
+		}
+	}
+}
