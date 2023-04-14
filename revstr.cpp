@@ -8,7 +8,7 @@ using namespace std;
 #define mp make_pair
 #define ff first
 #define ss second 
-#define loop(i,n) for(int i=0; i<n; i++)
+#define loop(i,n) for(int i=0; i<n;/ i++)
 #define loop1(i,n) for(int i=1; i<=n; i++)
 
 void revstr(string& str, int i, int j){
