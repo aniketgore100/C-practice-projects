@@ -10,6 +10,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+
 int main() {
     ListNode *head = new ListNode(1);
     head->next = new ListNode(2);
