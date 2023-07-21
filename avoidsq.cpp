@@ -1,32 +1,54 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
+#include <fstream>
+
 using namespace std;
-#define endl ("\n")
-#define pi (3.141592653589)
-#define mod (100000007)
-#define ll long long 
-#define pb push_back
-#define mp make_pair
-#define ff first
-#define ss second 
-#define loop(i,n) for(int i=0; i<n; i++)
-#define loop1(i,n) for(int i=1; i<=n; i++)
 
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
+double calculateVelocity(double G, double Mcentral, double R) {
+    return sqrt(G * Mcentral / R);
+}
 
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        loop1(i, n){
-            cout<<i<<" ";
-        }
-        cout<<endl;
+int main() {
+    // Constants
+    const double G = 6.67430e-11;  // Gravitational constant (m^3/kg/s^2)
+
+    // Input values
+    double Mcentral, R;
+
+    // Read values from the user
+    cin >> Mcentral;
+    cin >> R;
+
+    // Calculate velocity
+    double velocity = calculateVelocity(G, Mcentral, R);
+
+    // Create a data file to store the coordinates
+    ofstream dataFile("velocity_data.txt");
+    if (dataFile.is_open()) {
+        // Write the coordinates (R, velocity) to the file
+        dataFile << R << " " << velocity << endl;
+        dataFile.close();
+    } else {
+        cerr << "Error creating the data file!" << endl;
+        return 1;
     }
-   
-   return 0;
+
+    //  GNUplot script
+    ofstream scriptFile("velocity_plot.gnu");
+    if (scriptFile.is_open()) {
+        scriptFile << "set xlabel 'Distance (m)'\n";
+        scriptFile << "set ylabel 'Velocity (m/s)'\n";
+        scriptFile << "plot 'velocity_data.txt' with lines\n";
+        scriptFile << "pause -1\n";  // Pause to keep the graph displayed
+        scriptFile.close();
+    } else {
+        cerr << "Error creating the GNUplot script file!" << endl;
+        return 1;
+    }
+
+    // Execute the GNUplot script
+    string command = "gnuplot velocity_plot.gnu";
+    system(command.c_str());
+
+    return 0;
 }
