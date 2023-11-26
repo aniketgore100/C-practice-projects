@@ -14,18 +14,22 @@ using namespace std;
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-
-      int n;
-      cin>>n;
-      for(int i=1; i<=n; i++){
-          for(int j = i; j<=n; j++ ){
-              cout<<"*";
-          }
-          cout<<endl;
-      }
-   
-   return 0;
+	int i,j;
+	for(i=1;i<=5;i++)
+	  {
+	   for(j=1;j<=i;j++)
+		{
+			cout<<"X ";
+		}
+		cout<<"\n";
+    }
+		for(i=4;i>=1;i--)
+	    {
+		 for(j=1;j<=i;j++)
+		  {
+			cout<<"X ";
+		  }
+		cout<<"\n";
+    	}
 }
+
