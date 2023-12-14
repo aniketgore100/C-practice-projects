@@ -20,7 +20,11 @@ int main()
     int n;
     cin>>n;
     int arr[n];
+
+
        map<int, int>mp;
+
+       
        loop(i, n){
        cin>>  arr[i];
        mp[arr[i]]++;
